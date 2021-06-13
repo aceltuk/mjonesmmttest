@@ -16,12 +16,12 @@ namespace MJonesMmtTest.Api.Managers
             _orderService = orderService;
         }
 
-        public Task<OrderHistory> GetLastOrder(string emailAddress, string customerId)
+        public async Task<OrderHistory> GetLastOrder(string emailAddress, string customerId)
         {
             if (string.IsNullOrWhiteSpace(emailAddress) || string.IsNullOrWhiteSpace(customerId))
                 throw new RequestValidationException(emailAddress, customerId);
 
-            return Task.FromResult(new OrderHistory("", ""));
+            return Task.FromResult(new OrderHistory("", "")).Result;
         }
     }
 }
