@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\Response\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 
