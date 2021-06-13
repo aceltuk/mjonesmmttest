@@ -23,7 +23,7 @@ namespace MJonesMmtTest.Api.Repositories
             var query = _context.Orders.Where(o => o.Customerid == customerId)
                 .Include(oi => oi.Orderitems).ThenInclude(p => p.Product).OrderByDescending(o => o.Orderdate).Take(1);
 
-            var result = await query.SingleOrDefaultAsync();
+            var result = await query.SingleOrDefaultAsync(); //return a result or a null object
             return result;
         }
     }

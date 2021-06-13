@@ -30,11 +30,14 @@ namespace MJonesMmtTest.Api
             {
                 opts.UseSqlServer(Configuration["OrderDbConnection"]);
             });
+
+            //inject our dependencies here
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IOrderHistoryManager, OrderHistoryManager>();
 
+            //no need to alter the config data once loaded
             var config = new AppConfiguration { ApiKey = Configuration["ApiKey"], ApiEndpoint = Configuration["ApiEndpoint"] };
             services.AddSingleton(config);
         }
@@ -51,7 +54,7 @@ namespace MJonesMmtTest.Api
                 app.UseExceptionHandler("/Error");
             }
 
-            // simple logging
+            // simple logging introduction
             loggerFactory.AddFile("Logs/mylog-{Date}.txt");
 
             app.UseStatusCodePages();

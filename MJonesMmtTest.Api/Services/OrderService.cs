@@ -31,7 +31,7 @@ namespace MJonesMmtTest.Api.Services
                 CustomerId = result.Customerid
             };
 
-            const string isGift = "Gift";
+            const string isGift = "Gift"; //orders marked as containing gifts have their product names replaced with "Gift"
             var orderItems = result.Orderitems.Select(item => 
                 new OrderItem
                 {
