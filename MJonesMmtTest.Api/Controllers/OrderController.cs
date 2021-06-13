@@ -23,8 +23,8 @@ namespace MJonesMmtTest.Api.Controllers
             _logger = logger;
         }
 
-        [HttpPost("last")]
-        public async Task<ActionResult<OrderHistory>> RetrieveOrder([FromBody] LastOrderQuery query)
+        [HttpPost]
+        public async Task<ActionResult<OrderHistory>> RetrieveLastOrder([FromBody] LastOrderQuery query)
         {
             OrderHistory orderHistory;
 

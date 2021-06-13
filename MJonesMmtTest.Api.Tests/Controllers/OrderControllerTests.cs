@@ -26,7 +26,7 @@ namespace MJonesMmtTest.Api.Tests.Controllers
             var query = new LastOrderQuery { CustomerId = "", User = "" };
 
             //act
-            var actionResult = await orderController.RetrieveOrder(query);
+            var actionResult = await orderController.RetrieveLastOrder(query);
 
             //assert
             var result = actionResult.Result as BadRequestObjectResult;
@@ -46,7 +46,7 @@ namespace MJonesMmtTest.Api.Tests.Controllers
             var query = new LastOrderQuery { CustomerId = "", User = "" };
 
             //act
-            var actionResult = await orderController.RetrieveOrder(query);
+            var actionResult = await orderController.RetrieveLastOrder(query);
 
             //assert
             var result = actionResult.Result as NotFoundObjectResult;
@@ -66,7 +66,7 @@ namespace MJonesMmtTest.Api.Tests.Controllers
             var query = new LastOrderQuery { CustomerId = "", User = "" };
 
             //act
-            var actionResult = await orderController.RetrieveOrder(query);
+            var actionResult = await orderController.RetrieveLastOrder(query);
 
             //assert
             var result = actionResult.Result as ConflictObjectResult;
@@ -88,7 +88,7 @@ namespace MJonesMmtTest.Api.Tests.Controllers
             var query = new LastOrderQuery { CustomerId = "", User = "" };
 
             //act
-            var actionResult = await orderController.RetrieveOrder(query);
+            var actionResult = await orderController.RetrieveLastOrder(query);
 
             //assert
             var result = actionResult.Result as OkObjectResult;
