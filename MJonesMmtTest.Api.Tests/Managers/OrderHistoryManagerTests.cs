@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using FluentAssertions;
+using MJonesMmtTest.Api.Exceptions;
+using MJonesMmtTest.Api.Managers;
+using MJonesMmtTest.Api.Services;
 using Moq;
 using Xunit;
 
