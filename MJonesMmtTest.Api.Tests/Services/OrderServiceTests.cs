@@ -2,10 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using MJonesMmtTest.Api.Managers;
 using MJonesMmtTest.Api.Models.Dto;
-using MJonesMmtTest.Api.Models.ViewModel;
 using MJonesMmtTest.Api.Repositories;
 using MJonesMmtTest.Api.Services;
 using Moq;
