@@ -5,7 +5,6 @@
         public OrderHistory(string firstName, string lastName)
         {
             Customer = new Customer { Firstname = firstName, Lastname = lastName };
-            Order = new OrderDetails();
         }
 
         public Customer Customer { get; set; }
