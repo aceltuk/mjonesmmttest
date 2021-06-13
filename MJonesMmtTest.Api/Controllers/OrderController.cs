@@ -15,15 +15,15 @@ namespace MJonesMmtTest.Api.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderHistoryManager _orderHistoryManager;
-        private readonly ILogger _logger;
+        private readonly ILogger<OrderController> _logger;
 
-        public OrderController(IOrderHistoryManager orderHistoryManager, ILogger logger)
+        public OrderController(IOrderHistoryManager orderHistoryManager, ILogger<OrderController> logger)
         {
             _orderHistoryManager = orderHistoryManager;
             _logger = logger;
         }
 
-        [HttpPost]
+        [HttpPost("last")]
         public async Task<ActionResult<OrderHistory>> RetrieveLastOrder([FromBody] LastOrderQuery query)
         {
             OrderHistory orderHistory;

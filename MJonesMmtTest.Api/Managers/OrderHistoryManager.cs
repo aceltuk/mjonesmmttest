@@ -35,6 +35,7 @@ namespace MJonesMmtTest.Api.Managers
             if (!orderDetails.CustomerId.Equals(customerId, StringComparison.OrdinalIgnoreCase))
                 throw new CustomerAndOrderNotMatchedException(emailAddress, customerId, orderDetails.CustomerId);
 
+            orderHistory.Order = orderDetails;
             return orderHistory;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
 using MJonesMmtTest.Api.Exceptions;
@@ -88,6 +89,34 @@ namespace MJonesMmtTest.Api.Tests.Managers
             orderHistoryResult.Customer.Firstname.Should().Be("Charles");
             orderHistoryResult.Customer.Lastname.Should().Be("Smith");
             orderHistoryResult.Order.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("TestType", "Unit")]
+
+        public async Task GetLastOrder_CustomerFoundWithTwoOrders_ReturnsOrderHistoryWithCustomerTwoOrderItems()
+        {
+            //arrange
+            var customerService = new Mock<ICustomerService>();
+            var orderService = new Mock<IOrderService>();
+            customerService.Setup(s => s.GetCustomerAsync("a@a.com")).ReturnsAsync(new ApiCustomer { CustomerId = "12345", FirstName = "Charles", LastName = "Smith" });
+            orderService.Setup(s => s.GetOrderDetails("12345")).ReturnsAsync(new OrderDetails
+            {
+                CustomerId = "12345",
+                OrderNumber = 12345676,
+                OrderItems = new List<OrderItem>
+                {
+                    new() { PriceEach = 23.40M, Product = "Train", Quantity = 2 },
+                    new() { PriceEach = 35.50M, Product = "Plane", Quantity = 1 }
+                }
+            });
+            var orderHistoryManager = new OrderHistoryManager(customerService.Object, orderService.Object);
+
+            //act
+            var orderHistoryResult = await orderHistoryManager.GetLastOrder("a@a.com", "12345");
+
+            //assert
+            orderHistoryResult.Order.OrderItems.Should().HaveCount(2);
         }
     }
 }
