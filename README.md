@@ -1,8 +1,8 @@
 # mjonesmmttest
 MMT Senior Server-Side Technical Test
 
-ASPNET WEB API Coded in .NET 5
-Written lagely test-first, with the basic integration testing suite added as a final stage.
+ASPNET WEB API Coded in .NET 5, written largely test-first, with a basic integration testing suite added as a final stage. Unit tests and integration tests are labelled differently to allow selective running based on their categories. 
+
 To ensure that sensitive information is not checked into the repository, a user-secrets configuration was setup, targeted at developer environments.
 The user-secrets were installed at the command-line in the root of the MJonesMmtTest.Api project. The IntegrationTests project reuses these via the TestFixture and HostBuilder approach. The keys hidden away are "OrderDbConnection", "ApiKey" and "ApiEndpoint". For clarity's sake, the endpoint stored was the entire URI supplied, up to and including the "api" element. So, "https://*****/api"
 
